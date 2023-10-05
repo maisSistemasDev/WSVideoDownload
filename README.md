@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WSVideoDownload
 
-## Getting Started
+This application is a video download service that allows users to download videos from YouTube. It uses the `ytdl-core` library to download the video and Socket.IO to stream the video data to the client in real-time.
 
-First, run the development server:
+## Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Clone the repository to your local environment.
+2. Run `npm install` to install all necessary dependencies.
+3. Run `npm run dev` to start the development server.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Open the application in your browser.
+2. Enter the URL of the YouTube video you want to download into the input field.
+3. Click the "Download Video" button to start the download.
+4. The video will be downloaded to your machine.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Code Structure
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- `pages/api/socket.js`: This is the Socket.IO server that handles streaming video data to the client.
+- `pages/index.js`: This is the main page of the application that contains the user interface for entering the video URL and initiating the download.
 
-## Learn More
+## Known Issues
 
-To learn more about Next.js, take a look at the following resources:
+- The last chunk of the video may not be recorded correctly due to the state update timing in React. A temporary workaround is to add a small delay before handling the end event to ensure the last chunk has time to be added to the state.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contributions are welcome! Please feel free to open an issue or a pull request if you encounter any problems or have any improvement suggestions.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This application is licensed under the MIT license. See the `LICENSE` file for more details.
