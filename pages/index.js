@@ -39,6 +39,7 @@ export default function Home() {
 
 
 useEffect(() => {
+  console.log(videoChunks.length)
   const handleVideoEnd = () => {
     console.log('convertendo')
     setTimeout(() => {
