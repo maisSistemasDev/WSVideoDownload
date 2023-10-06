@@ -16,10 +16,12 @@ const ioHandler = (req, res) => {
           socket.emit('videoInfo', videoInfo);
 
           videoStream.on('data', (chunk) => {
+            console.log('enviando chunks...')
             socket.emit('videoChunk', chunk);
           });
 
           videoStream.on('end', () => {
+            console.log('finalizando')
             socket.emit('videoEnd');
           });
         } catch (error) {
